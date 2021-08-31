@@ -1,0 +1,20 @@
+<html>
+<h1>模板 嵌套</h1>
+
+<body>
+
+<hr>
+{{ template "ul.tmpl"}}
+<hr>
+{{ template "ol.tmpl"}}
+
+<div>你好{{.}}</div>
+</body>
+</html>
+{{/** 通过  define定义一个模板   */}}
+{{define "ol.tmpl"}}
+    <ol>
+        <li>吃饭</li>
+        <li>睡觉</li>
+    </ol>
+{{end}}

@@ -1,0 +1,46 @@
+<!--go 语言模板文件 -->
+<html>
+<body>
+<!--  - 去掉空格  -->
+<p>Hello {{- .u1.Name -}}</p>
+<p>性别:{{  .u1.Gender }}</p>
+<p>年龄:{{ .u1.Age }}</p>
+<br>
+<p>Hello {{ .m1.name }}</p>
+<p>性别:{{  .m1.gender }}</p>
+<p>年龄:{{ .m1.age }}</p>
+
+<br>
+<!-- 定义变量 -->
+{{ $v1:=100}}
+{{ $age:=.m1.age}}
+
+<!-- 条件判断 -->
+
+{{if  $v1 }}
+    {{ $v1}}
+{{ else}}
+    啥也没有
+{{end}}
+
+<hr>
+{{ if lt .m1.age 23}}
+    好好上学
+{{else}}
+    好好工作
+{{end}}
+
+<hr>
+{{range $idx,$hobby:= .hobby}}
+    <p>idx:{{$idx}} - {{$hobby}}</p>
+{{end}}
+<hr>
+<!-- 作用域 -->
+{{with .m1}}
+    {{.name}}
+    {{.age}}
+{{end}}
+<!-- 取索引为2的值 -->
+{{index.hobby 2}}
+</body>
+</html>
